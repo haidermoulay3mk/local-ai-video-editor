@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.out/
+*.log
+# Videos, renders, tools and models live in %LOCALAPPDATA%\Video Editor (never in the repo)
+data/
+tools/
+.gstack/
