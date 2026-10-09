@@ -9,11 +9,16 @@ wake up to finished videos, hook ideas, titles, thumbnails and subtitle files.
 ![TypeScript: strict](https://img.shields.io/badge/TypeScript-strict-3178C6)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
+<p align="center">
+  <img src="docs/demo.gif" width="270" alt="A short edited by Claude from one sentence: hook title, word-timed captions, punch-in zooms and a progress bar">
+</p>
+<p align="center"><sub>One sentence to Claude → hook title, word-timed captions, punch-in zooms, music, progress bar — plus the title, hashtags and thumbnails.</sub></p>
+
 ![The editing room: live preview, timeline and the Director chat after a real Claude edit](docs/editor.png)
 
 ## What it does
 
-| | |
+| Feature | What you get |
 |---|---|
 | **Edits from plain words** | "Make this a punchy 30-second reel: cut the pauses, bold captions, a hook title, zoom on the key words." Claude plans the edit, applies it, renders preview frames, checks its own work and tells you what it did. Every change can be undone. |
 | **Footage repair** | Spots dark, flat, shaky or colour-cast footage and fixes it (stabilize, denoise, exposure, white balance) before editing. Every export is loudness-mastered to −14 LUFS, the level platforms normalise to. |
@@ -31,11 +36,11 @@ wake up to finished videos, hook ideas, titles, thumbnails and subtitle files.
 
 ```mermaid
 flowchart LR
-  UI["Browser UI<br/>(React)"] <--> S["Local server<br/>(Bun, 127.0.0.1 only)"]
-  S --> I["Ingest<br/>ffmpeg · whisper.cpp · YuNet faces"]
-  S <--> C["Your Claude Code<br/>(headless, editor tools only)"]
-  C -->|"MCP tools: cut, layer, caption,<br/>preview, thumbnails…"| S
-  S --> R["Remotion render<br/>(same composition as the preview)"]
+  UI["Browser UI<br/>React"] <--> S["Local server<br/>Bun · 127.0.0.1 only"]
+  S --> I["Ingest<br/>ffmpeg · whisper.cpp · YuNet"]
+  S <--> T["Editor tools (MCP)<br/>cut · layer · caption<br/>preview · thumbnails"]
+  T <--> C["Your Claude Code<br/>headless · no shell,<br/>files or web"]
+  S --> R["Remotion render<br/>same composition<br/>as the preview"]
   R --> E["MP4 + .srt"]
 ```
 

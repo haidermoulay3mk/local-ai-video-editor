@@ -1,0 +1,15 @@
+name: Feature idea
+description: Suggest something the editor should do
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like it to do?
+      placeholder: "When I say 'make it a podcast clip', it should…"
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why does it matter for your videos?
